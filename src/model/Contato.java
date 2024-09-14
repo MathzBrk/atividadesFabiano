@@ -12,6 +12,11 @@ public class Contato {
         this.numeroTelefone = numeroTelefone;
     }
 
+    public Contato(Integer numeroTelefone, String nomeContato) {
+        this.numeroTelefone = numeroTelefone;
+        this.nomeContato = nomeContato;
+    }
+
     public void setNomeContato(String nomeContato) {
         this.nomeContato = nomeContato;
     }

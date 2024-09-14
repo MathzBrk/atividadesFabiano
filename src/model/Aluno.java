@@ -1,5 +1,7 @@
 package model;
 
+import service.GeradorId;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,10 +10,10 @@ public class Aluno {
     private Integer matricula;
     private List<Double> notas;
 
-    public Aluno(ArrayList<Double> notas, String nome, Integer matricula) {
+    public Aluno(ArrayList<Double> notas, String nome) {
         this.notas = notas;
         this.nome = nome;
-        this.matricula = matricula;
+        this.matricula = GeradorId.getProximoId();
     }
 
     public double calcularMediaNotas(){
@@ -24,12 +26,16 @@ public class Aluno {
     }
 
     public void verificarSituacaoAluno(){
-        Double nota = calcularMediaNotas();
+        Double mediaNotas = calcularMediaNotas();
+        Double totalNota = 0.0;
+        for(Double nota : notas){
+            totalNota += nota;
+        }
 
-        if(nota >= 60 ){
-            System.out.println("Aprovado! Com médaia de: " + nota);
+        if(totalNota >= 60 ){
+            System.out.println("Aprovado! Com média de: " + mediaNotas);
         }else{
-            System.out.println("Reprovado! Com média de: " + nota);
+            System.out.println("Reprovado! Com média de: " + mediaNotas);
         }
     }
 }

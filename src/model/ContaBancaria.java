@@ -1,13 +1,24 @@
 package model;
 
+import service.GeradorId;
+
 public class ContaBancaria {
     private Integer numeroConta;
     private String titular;
     private Double saldo;
 
-    public ContaBancaria(String titular, Integer numeroConta, Double saldo) {
+    @Override
+    public String toString() {
+        return "ContaBancaria{" +
+                "titular='" + titular + '\'' +
+                ", numeroConta=" + numeroConta +
+                ", saldo=" + saldo +
+                '}';
+    }
+
+    public ContaBancaria(String titular, Double saldo) {
         this.titular = titular;
-        this.numeroConta = numeroConta;
+        this.numeroConta = GeradorId.getProximoId();
         this.saldo = saldo;
     }
 

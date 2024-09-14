@@ -1,13 +1,15 @@
 package model;
 
+import service.GeradorId;
+
 public class Consulta {
     private int idConsulta;
     private String titulo;
     private String descricao;
     private Paciente paciente;
 
-    public Consulta(int idConsulta, String titulo, String descricao, Paciente paciente) {
-        this.idConsulta = idConsulta;
+    public Consulta(String titulo, String descricao, Paciente paciente) {
+        this.idConsulta = GeradorId.getProximoId();
         this.titulo = titulo;
         this.descricao = descricao;
         this.paciente = paciente;
@@ -19,7 +21,7 @@ public class Consulta {
                 "idConsulta=" + idConsulta +
                 ", titulo='" + titulo + '\'' +
                 ", descricao='" + descricao + '\'' +
-                ", paciente=" + paciente +
+                ", paciente=" + paciente.getNome() +
                 '}';
     }
 }

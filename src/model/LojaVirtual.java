@@ -1,5 +1,7 @@
 package model;
 
+import service.GeradorId;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,8 +11,8 @@ public class LojaVirtual {
     private String descricaoLoja;
     private List<Produto> produtos;
 
-    public LojaVirtual(int idLoja, String nomeLoja, String descricaoLoja) {
-        this.idLoja = idLoja;
+    public LojaVirtual(String nomeLoja, String descricaoLoja) {
+        this.idLoja = GeradorId.getProximoId();
         this.nomeLoja = nomeLoja;
         this.descricaoLoja = descricaoLoja;
         this.produtos = new ArrayList<>();

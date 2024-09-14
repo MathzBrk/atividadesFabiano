@@ -1,10 +1,9 @@
 package model;
 
-import Control.GeradorId;
+import service.GeradorId;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 public class Biblioteca {
     private List<Livro> livros;

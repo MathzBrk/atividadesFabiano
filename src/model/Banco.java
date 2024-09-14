@@ -14,9 +14,9 @@ public class Banco {
         this.clientes = new ArrayList<>();
     }
 
-    public void abrirConta(String titular, Integer numeroConta, Double saldo) {
+    public void abrirConta(String titular,  Double saldo) {
         try {
-            ContaBancaria contaBancaria = new ContaBancaria(titular, numeroConta, saldo);
+            ContaBancaria contaBancaria = new ContaBancaria(titular, saldo);
             contas.add(contaBancaria);
             System.out.println("Conta aberta com sucesso!");
         } catch (Exception e) {
@@ -62,6 +62,12 @@ public class Banco {
             System.out.println("Depósito finalizado com sucesso!");
         }else{
             System.out.println("Conta nao encontrada!");
+        }
+    }
+
+    public void listarContas(){
+        for (ContaBancaria conta : contas) {
+            System.out.println(conta);
         }
     }
 

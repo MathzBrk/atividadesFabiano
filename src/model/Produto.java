@@ -1,16 +1,18 @@
 package model;
 
+import service.GeradorId;
+
 public class Produto {
     private String nome;
     private Double preco;
     private Integer quantidade;
     private Integer idProduto;
 
-    public Produto(String nome, Double preco, Integer quantidade, Integer idProduto) {
+    public Produto(String nome, Double preco, Integer quantidade) {
         this.nome = nome;
         this.preco = preco;
         this.quantidade = quantidade;
-        this.idProduto = idProduto;
+        this.idProduto = GeradorId.getProximoId();
     }
 
     public Integer getIdProduto() {
