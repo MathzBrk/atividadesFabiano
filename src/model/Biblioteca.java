@@ -45,5 +45,11 @@ public class Biblioteca {
         return livros.contains(livro) && livro.isDisponivel();
     }
 
+    public void listarLivros(){
+        System.out.println("LIVROS DISPONÍVEIS: ");
+        for(Livro livro : livros){
+            System.out.println(livro);
+        }
+    }
 
 }

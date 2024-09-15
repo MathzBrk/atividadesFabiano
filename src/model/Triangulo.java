@@ -30,7 +30,11 @@ public class Triangulo {
     }
 
     public double calculaArea() {
-        return lado1 * lado2 * lado3;
+        if(isTrianguloValido()){
+            return lado1 * lado2 * lado3;
+        }else{
+            return 0;
+        }
     }
 
 }

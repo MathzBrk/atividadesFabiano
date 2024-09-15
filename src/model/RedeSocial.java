@@ -25,29 +25,6 @@ public class RedeSocial {
         }
     }
 
-    public void publicarMensagem(String mensagem, Usuario usuario) {
-        if(usuarios.contains(usuario)) {
-            usuario.publicarMensagem(mensagem);
-            System.out.println("Mensagem adicionado com sucesso!");
-        }else {
-            System.out.println("Mensagem não publicada");
-        }
-    }
-
-    public void comentarEmPost(Usuario usuario, Integer idPost, String comentario) {
-        Optional<Usuario> usuarioOptional = usuarios.stream()
-                .filter(u -> u.getPosts().stream().anyMatch(p -> p.getId() == idPost))
-                .findFirst();
-
-        if (usuarioOptional.isPresent()) {
-            Usuario donoDoPost = usuarioOptional.get();
-            donoDoPost.comentarEmPost(idPost, comentario);
-            System.out.println("Comentário publicado com sucesso.");
-        } else {
-            System.out.println("Post não encontrado.");
-        }
-    }
-
     public Usuario buscarUsuarioPorId(Integer id) {
         Optional<Usuario> usuario = usuarios.stream()
                 .filter(u -> u.getId() == id)
@@ -55,6 +32,13 @@ public class RedeSocial {
 
         return usuario.orElse(null);
     }
+
+    public void listarUsuarios(){
+        for(Usuario usuario : usuarios) {
+            System.out.println(usuario);
+        }
+    }
+
 
 
 

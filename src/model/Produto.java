@@ -32,6 +32,22 @@ public class Produto {
         return quantidade;
     }
 
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public void setPreco(Double preco) {
+        this.preco = preco;
+    }
+
+    public void setQuantidade(Integer quantidade) {
+        this.quantidade = quantidade;
+    }
+
+    public void setIdProduto(Integer idProduto) {
+        this.idProduto = idProduto;
+    }
+
     public boolean verificarDisponibilidade() {
         if (quantidade >= 1) {
             return true;

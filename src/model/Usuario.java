@@ -11,11 +11,19 @@ public class Usuario {
     private List<Post> posts;
     private List<Usuario> amigos;
 
-    public Usuario(String nome, Integer id) {
+    public Usuario(String nome) {
         this.nome = nome;
         this.id = GeradorId.getProximoId();
         this.posts = new ArrayList<Post>();
         this.amigos = new ArrayList<>();
+    }
+
+    @Override
+    public String toString() {
+        return "Usuario{" +
+                "nome='" + nome + '\'' +
+                ", id=" + id +
+                '}';
     }
 
     public void addAmigo(Usuario amigo) {
@@ -53,9 +61,12 @@ public class Usuario {
 
         if(post != null) {
             post.addComentario(comentario);
-            System.out.println("Comentario adicionado com sucesso");
-        }else{
-            System.out.println("Post não encontrado.");
         }
+    }
+
+    public void criarPost(String mensagem) {
+        Post novoPost = new Post(mensagem);
+        posts.add(novoPost);
+        System.out.println(nome + " criou um novo post: " + mensagem);
     }
 }

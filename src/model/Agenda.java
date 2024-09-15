@@ -8,7 +8,7 @@ public class Agenda {
     private List<Contato> contatos;
 
     public Agenda() {
-        contatos = new ArrayList<>();
+        contatos = new ArrayList<Contato>();
     }
 
     public void adicionarContato(Contato contato) {
@@ -54,7 +54,23 @@ public class Agenda {
         }
     }
 
+    public void editarNomeContato(String nome, Contato contato) {
+        contato.setNomeContato(nome);
+    }
+
     public Contato buscarContatoPorNome(String nome) {
+//        try {
+//            for (Contato c : contatos) {
+//                if (c.getNomeContato().equals(nome)) {
+//                    return c;
+//                }
+//            }
+//        }catch (Exception e) {
+//            System.out.println("Erro ao buscar contato");
+//        }
+//        return null;
+//    }
+
         Optional<Contato> contato = contatos.stream()
                 .filter(c -> c.getNomeContato().equals(nome))
                 .findFirst();

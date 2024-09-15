@@ -17,10 +17,27 @@ public class Calendario {
     }
 
     private void inicializarFeriados() {
-
-        feriados.add(LocalDate.of(2024, 1, 1));
-        feriados.add(LocalDate.of(2024, 12, 25));
-
+        // Adiciona feriados ao conjunto
+        feriados.add(LocalDate.of(2024, 1, 1));  // Confraternização Universal
+        feriados.add(LocalDate.of(2024, 2, 12)); // Carnaval
+        feriados.add(LocalDate.of(2024, 4, 21)); // Tiradentes
+        feriados.add(LocalDate.of(2024, 5, 1));  // Dia do Trabalho
+        feriados.add(LocalDate.of(2024, 6, 15)); // Corpus Christi
+        feriados.add(LocalDate.of(2024, 9, 7));  // Independência do Brasil
+        feriados.add(LocalDate.of(2024, 10, 12)); // Nossa Senhora Aparecida
+        feriados.add(LocalDate.of(2024, 11, 2)); // Finados
+        feriados.add(LocalDate.of(2024, 11, 15)); // Proclamação da República
+        feriados.add(LocalDate.of(2024, 12, 25)); // Natal
+        feriados.add(LocalDate.of(2023, 12, 31)); // Réveillon 2023
+        feriados.add(LocalDate.of(2023, 12, 25)); // Natal 2023
+        feriados.add(LocalDate.of(2023, 11, 2));  // Finados 2023
+        feriados.add(LocalDate.of(2023, 9, 7));   // Independência do Brasil 2023
+        feriados.add(LocalDate.of(2023, 8, 15));  // Assunção de Nossa Senhora
+        feriados.add(LocalDate.of(2023, 6, 8));   // Corpus Christi 2023
+        feriados.add(LocalDate.of(2023, 5, 1));   // Dia do Trabalho 2023
+        feriados.add(LocalDate.of(2023, 4, 21));  // Tiradentes 2023
+        feriados.add(LocalDate.of(2023, 2, 21));  // Carnaval 2023
+        feriados.add(LocalDate.of(2023, 1, 1));   // Confraternização Universal 2023
     }
 
     public void exibirCalendarioDoMes(int mes, int ano) {

@@ -68,5 +68,13 @@ public class Livro {
         return status;
     }
 
-
+    @Override
+    public String toString() {
+        return "Livro{" +
+                "titulo='" + titulo + '\'' +
+                ", autor='" + autor + '\'' +
+                ", numeroPaginas=" + numeroPaginas +
+                ", status=" + status +
+                '}';
+    }
 }

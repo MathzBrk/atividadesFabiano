@@ -10,6 +10,22 @@ public class JogoCartas {
     private Integer numeroJogadores;
     private List<String> jogadores;
 
+    public List<Carta> getBaralho() {
+        return baralho;
+    }
+
+    public List<Carta> getMaoJogador(int jogadorIndex) {
+        return maoJogadores.get(jogadorIndex);
+    }
+
+    public String getNomeJogador(int jogadorIndex) {
+        return jogadores.get(jogadorIndex);
+    }
+
+    public List<String> getJogadores() {
+        return jogadores;
+    }
+
     public JogoCartas(Integer numeroJogadores){
         this.numeroJogadores = numeroJogadores;
         this.jogadores = new ArrayList<>();
@@ -55,21 +71,22 @@ public class JogoCartas {
         maoJogadores.add(new ArrayList<>());
     }
 
-    public void exibirmaoJogadores() {
+    public void exibirMaoJogadores() {
         for (int i = 0; i < numeroJogadores; i++) {
             System.out.println("Jogador " + (i + 1) + " (" + jogadores.get(i) + "): " + maoJogadores.get(i));
         }
     }
 
-    public boolean jogarCarta(int jogadorIndex, Carta carta) {
+    public boolean jogarCarta(int jogadorIndex, int cartaIndex) {
         if (jogadorIndex >= 0 && jogadorIndex < numeroJogadores) {
             List<Carta> mao = maoJogadores.get(jogadorIndex);
-            if (mao.contains(carta)) {
-                mao.remove(carta);
-                System.out.println("Jogador " + (jogadorIndex + 1) + " jogou a carta: " + carta);
+            if (cartaIndex >= 0 && cartaIndex < mao.size()) {
+                Carta cartaJogada = mao.remove(cartaIndex);
+                System.out.println("Jogador " + (jogadorIndex + 1) + " jogou a carta: " + cartaJogada);
                 return true;
             }
         }
         return false;
     }
+
 }

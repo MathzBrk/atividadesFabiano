@@ -13,6 +13,14 @@ public class Carta {
         return valor;
     }
 
+    @Override
+    public String toString() {
+        return "Carta{" +
+                "valor='" + valor + '\'' +
+                ", valorNumerico=" + valorNumerico +
+                '}';
+    }
+
     public int getValorNumerico() {
         return valorNumerico;
     }

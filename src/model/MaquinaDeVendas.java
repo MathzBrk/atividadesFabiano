@@ -19,15 +19,18 @@ public class MaquinaDeVendas {
         this.produtos.add(produto);
     }
 
-    public Produto selecionarProduto(Produto produto) {
-        this.produtoSelecionado = produto;
+    public Produto selecionarProduto(String nomeProduto) {
 
-        Optional<Produto> produtoC = produtos.stream()
-                .filter(p -> p.getIdProduto() == this.produtoSelecionado.getIdProduto() && p.verificarDisponibilidade())
+        Optional<Produto> produtoSelecionado = produtos.stream()
+                .filter(p -> p.getNome().toLowerCase().contains(nomeProduto.toLowerCase()))
                 .findFirst();
 
-        return produtoC.orElse(null);
+        produtoSelecionado = produtoSelecionado.filter(Produto::verificarDisponibilidade);
+        this.produtoSelecionado = produtoSelecionado.orElse(null);
+        return this.produtoSelecionado;
     }
+
+
 
     public void inserirDinheiroCliente(Double dinheiroCliente) {
         this.dinheiroCliente += dinheiroCliente;
@@ -42,6 +45,7 @@ public class MaquinaDeVendas {
         if (dinheiroCliente >= valorProduto) {
             double troco = dinheiroCliente - valorProduto;
             dinheiroCliente = 0.0;
+            this.produtoSelecionado.setQuantidade(produtoSelecionado.getQuantidade() - 1);
             this.produtoSelecionado = null;
             return troco;
         } else {
